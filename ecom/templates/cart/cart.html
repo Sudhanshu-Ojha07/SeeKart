@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block start %}
+
+<section class="section-content padding-y">
+    <div class="container">
+        <div class="card" style="background-color: rgb(190, 250, 190);">
+            <div class="card-body">
+                <h4 style="color: black;">Your Cart</h4>
+                {% if items %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Size</th>
+                            <th>Color</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.product.product_name }}</td>
+                            <td>{{ item.size_variant.size_name }}</td>
+                            <td>{{ item.color_variant.color_name}}</td>
+                            <td>{{ item.quantity}}</td>
+                            <td>${{ item.product.price}} * {{item.quantity }}</td>
+                            <td>
+                                <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">Remove</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                {% else %}
+                    <p style="color:black;">Your cart is empty. <a href="{% url 'register' %}">Register</a> Or <a href="{% url 'login' %}">Login</a> </p>
+                {% endif %}
+                <a href="#" class="btn btn-primary">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
