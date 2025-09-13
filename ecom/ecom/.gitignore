@@ -1,9 +1,6 @@
 # .gitignore
 .env
 
-
-db.sqlite3
-
 # If you have a media folder for user uploads
 # you might want to ignore it as well
 # /media/       
