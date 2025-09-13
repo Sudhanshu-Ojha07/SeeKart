@@ -1,0 +1,16 @@
+# .gitignore
+.env
+myenv/
+__pycache__/
+db.sqlite3
+*.pyc
+.DS_Store
+*.log
+/staticfiles/
+/media/ 
+# If you have a media folder for user uploads
+# you might want to ignore it as well
+# /media/       
+# If you have a folder for collected static files
+# you might want to ignore it as well
+# /staticfiles/ 
